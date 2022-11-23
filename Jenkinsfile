@@ -12,21 +12,21 @@ pipeline{
         stage('build-the-app'){
             steps{
                 echo 'this is the first job'
-                sh 'mvm compile'
+                sh 'mvn compile'
                 
             }
         }
         stage('test-the-app'){
             steps{
                 echo 'this is the second job'
-                sh 'mvm test'
+                sh 'mvn clean test'
 
             }
         }
         stage('package-the-app'){
             steps{
                 echo 'this is the third job'
-                sh 'mvm package'
+                sh 'mvn package -DskipTests'
  
             }
         }
@@ -39,5 +39,8 @@ pipeline{
         
     }
     
-}:wq
+}
+
+
+
 
